@@ -1,4 +1,3 @@
-# ChessBoardGames
 <html>
 <head>
 </head>
