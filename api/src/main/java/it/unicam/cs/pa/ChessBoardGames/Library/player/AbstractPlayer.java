@@ -1,7 +1,11 @@
 package it.unicam.cs.pa.ChessBoardGames.Library.player;
 
 
+import it.unicam.cs.pa.ChessBoardGames.Library.pieces.Pieces;
+
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -18,10 +22,13 @@ public abstract class AbstractPlayer implements Player {
     private String namePlayer;
     private Color colorPlayer;
 
+    private List<Pieces> listaPezzi;
+
     public AbstractPlayer(String namePlayer, Color colorPlayer) {
         this.idPlayer=UUID.randomUUID();
         this.namePlayer = namePlayer;
         this.colorPlayer = colorPlayer;
+        listaPezzi=new ArrayList<>();
     }
 
     @Override
@@ -48,7 +55,9 @@ public abstract class AbstractPlayer implements Player {
     }
 
     @Override
-    public abstract int getCountPieces();
+    public List<Pieces> getCountPieces() {
+        return this.listaPezzi;
+    }
 
     @Override
     public abstract void applyMove();

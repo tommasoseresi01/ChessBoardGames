@@ -7,15 +7,9 @@ package it.unicam.cs.pa.ChessBoardGames.Library.pieces;
  *
  * @author Tommaso Seresi.
  */
-public interface Pieces<P> {
+public interface Pieces{
 
-    /**
-     * Metodo che restituisce a quale giocatore
-     * appartiene questo pezzo
-     *
-     * @return giocatore in possesso di questo pezzo
-     */
-    P getPlayer();
+
 
     /**
      * Metodo che non restituisce niente,

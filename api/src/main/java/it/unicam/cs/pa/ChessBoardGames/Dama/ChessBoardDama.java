@@ -3,6 +3,7 @@ package it.unicam.cs.pa.ChessBoardGames.Dama;
 import it.unicam.cs.pa.ChessBoardGames.Library.board.AbstractChessBoard;
 import it.unicam.cs.pa.ChessBoardGames.Library.pieces.Pieces;
 import it.unicam.cs.pa.ChessBoardGames.Library.board.SimpleBox;
+import it.unicam.cs.pa.ChessBoardGames.Library.player.AbstractPlayer;
 
 import java.awt.*;
 
@@ -14,9 +15,16 @@ import java.awt.*;
  */
 public class ChessBoardDama extends AbstractChessBoard<SimpleBox> {
 
-    public static final int SIZE_CHESSBOARDDAMA=8;
-    public ChessBoardDama() {
+    private static final int SIZE_CHESSBOARDDAMA=8;
+
+    private PlayerHuman player;
+
+    private PlayerBot playerBot;
+
+    public ChessBoardDama(PlayerHuman player, PlayerBot playerBot) {
         super(SIZE_CHESSBOARDDAMA);
+        this.player=player;
+        this.playerBot=playerBot;
         this.buildChessBoard();
     }
 
@@ -41,10 +49,22 @@ public class ChessBoardDama extends AbstractChessBoard<SimpleBox> {
         }
     }
     private void insertPawnsBlackBox(int i, int j, SimpleBox box){
-        if(((i>=0 && i<=2) || (i>=5 && i<=7)) && getMatrix()[i][j]==null) {
+        if((i>=0 && i<=2) && getMatrix()[i][j]==null) {
             box= new SimpleBox(i,j,Color.black);
-            Pieces Pawns=null;
-            box.setPieces(Pawns);
+            Pieces pawns=new Pawns();
+            if(player.getColor()==Color.white)
+            {player.getCountPieces().add(pawns);}
+            else {playerBot.getCountPieces().add(pawns);}
+            box.setPieces(pawns);
+            getMatrix()[i][j]=box;
+        }
+        if((i>=5 && i<=7) && getMatrix()[i][j]==null){
+            box= new SimpleBox(i,j,Color.black);
+            Pieces pawns=new Pawns();
+            if(player.getColor()==Color.black)
+            {player.getCountPieces().add(pawns);}
+            else{playerBot.getCountPieces().add(pawns);}
+            box.setPieces(pawns);
             getMatrix()[i][j]=box;
         }
     }

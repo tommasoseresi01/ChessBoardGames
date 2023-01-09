@@ -1,7 +1,10 @@
 package it.unicam.cs.pa.ChessBoardGames.Library.player;
 
 
+import it.unicam.cs.pa.ChessBoardGames.Library.pieces.Pieces;
+
 import java.awt.*;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -38,12 +41,12 @@ public interface Player {
     Color getColor();
 
     /**
-     * Metodo che visualizza quanti
-     * pezzi possiede il giocatore
+     * Metodo che visualizza la lista dei
+     * pezzi che  possiede il giocatore
      *
      * @return pezzi del giocatore
      */
-    int getCountPieces();
+    List<Pieces> getCountPieces();
 
     /**
      * Metodo che consente di applicare

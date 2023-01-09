@@ -1,6 +1,8 @@
 package it.unicam.cs.pa.Test;
 
 import it.unicam.cs.pa.ChessBoardGames.Dama.ChessBoardDama;
+import it.unicam.cs.pa.ChessBoardGames.Dama.PlayerBot;
+import it.unicam.cs.pa.ChessBoardGames.Dama.PlayerHuman;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -10,7 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DamaTest {
     @Test
     public void buildChessBoardDamaShouldBeDone(){
-        ChessBoardDama chessDama= new ChessBoardDama();
+        PlayerHuman player1= new PlayerHuman("Mario", Color.white);
+        PlayerBot playerBot= new PlayerBot(Color.black);
+        ChessBoardDama chessDama= new ChessBoardDama(player1, playerBot);
         //Controllo se la dimensione specificata é giusta
         assertEquals(8, chessDama.getSize());
         //Controllo se le caselle della scacchiera sono
