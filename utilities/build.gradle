@@ -3,7 +3,7 @@
  */
 
 plugins {
-    id 'projectpa.java-library-conventions'
+    id 'chessboardgamespa.java-library-conventions'
 }
 
 dependencies {
